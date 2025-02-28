@@ -1,0 +1,49 @@
+<section class="projects-hero">
+  <div class="container">
+    <h1 class="section-title">Projelerim</h1>
+    <p class="hero-subtitle">İş ve kişisel projelerimin bir koleksiyonu</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="projects-container">
+      <div *ngIf="loading" class="loading">
+        <p>Projeler yükleniyor...</p>
+      </div>
+      
+      <div *ngIf="error" class="error">
+        <p>{{ error }}</p>
+      </div>
+      
+      <div *ngIf="!loading && !error && projects.length === 0" class="no-projects">
+        <p>Şu anda mevcut proje bulunmamaktadır. Lütfen daha sonra tekrar kontrol edin.</p>
+      </div>
+      
+      <div *ngIf="projects.length > 0" class="projects-grid">
+        <div *ngFor="let project of projects" class="project-card card fade-in">
+          <div class="project-image">
+            <img [src]="project.imageUrl" [alt]="project.title">
+            <div class="project-overlay">
+              <a [routerLink]="['/projects', project._id]" class="btn btn-sm">Detayları Gör</a>
+            </div>
+          </div>
+          <div class="project-content">
+            <h3>{{ project.title }}</h3>
+            <p>{{ project.description | slice:0:150 }}{{ project.description.length > 150 ? '...' : '' }}</p>
+            <div class="project-tech">
+              <span *ngFor="let tech of project.technologies" class="tech-tag">{{ tech }}</span>
+            </div>
+            <div class="project-links">
+              <a [routerLink]="['/projects', project._id]" class="btn btn-sm">Detayları Gör</a>
+              <a *ngIf="project.liveUrl" [href]="project.liveUrl" target="_blank" class="btn btn-sm btn-outline">Canlı Demo</a>
+              <a *ngIf="project.githubUrl" [href]="project.githubUrl" target="_blank" class="btn btn-sm btn-outline">
+                <i class="fab fa-github"></i> Kod
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

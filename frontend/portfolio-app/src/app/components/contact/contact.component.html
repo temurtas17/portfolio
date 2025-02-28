@@ -1,0 +1,136 @@
+<section class="contact-hero">
+  <div class="container">
+    <h1 class="section-title">İletişime Geçin</h1>
+    <p class="hero-subtitle">Bir sorunuz mu var veya birlikte çalışmak mı istiyorsunuz? Bana mesaj gönderin!</p>
+  </div>
+</section>
+
+<section class="contact-section">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="info-card">
+          <div class="info-icon">
+            <i class="fas fa-envelope"></i>
+          </div>
+          <div class="info-content">
+            <h3>E-posta</h3>
+            <p><a href="mailto:mtemurtas1993&#64;gmail.com">mtemurtas1993&#64;gmail.com</a></p>
+          </div>
+        </div>
+        
+        <div class="info-card">
+          <div class="info-icon">
+            <i class="fas fa-map-marker-alt"></i>
+          </div>
+          <div class="info-content">
+            <h3>Konum</h3>
+            <p>Ankara, Türkiye</p>
+          </div>
+        </div>
+        
+        <div class="info-card">
+          <div class="info-icon">
+            <i class="fas fa-phone"></i>
+          </div>
+          <div class="info-content">
+            <h3>Telefon</h3>
+            <p><a href="tel:+905398718953">+90 (539) 871-89-53</a></p>
+          </div>
+        </div>
+        
+        <div class="social-links">
+          <h3>Benimle Bağlantı Kurun</h3>
+          <div class="social-icons">
+            <a href="https://github.com/temurtas17" target="_blank" class="social-icon">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="https://linkedin.com/in/mustafa-temurtas-140b8415a" target="_blank" class="social-icon">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="https://twitter.com/yourusername" target="_blank" class="social-icon">
+              <i class="fab fa-twitter"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="contact-form-container">
+        <h2>Bana Mesaj Gönderin</h2>
+        
+        <div *ngIf="submitted && success" class="success-message">
+          <i class="fas fa-check-circle"></i>
+          <p>Mesajınız başarıyla gönderildi! En kısa sürede size geri döneceğim.</p>
+        </div>
+        
+        <div *ngIf="submitted && error" class="error-message">
+          <i class="fas fa-exclamation-circle"></i>
+          <p>{{ error }}</p>
+        </div>
+        
+        <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" *ngIf="!submitted || error">
+          <div class="form-group">
+            <label for="name">İsim</label>
+            <input 
+              type="text" 
+              id="name" 
+              formControlName="name" 
+              [ngClass]="{'invalid': isFieldInvalid('name')}"
+            >
+            <div *ngIf="isFieldInvalid('name')" class="error-text">
+              Lütfen isminizi girin
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="email">E-posta</label>
+            <input 
+              type="email" 
+              id="email" 
+              formControlName="email"
+              [ngClass]="{'invalid': isFieldInvalid('email')}"
+            >
+            <div *ngIf="isFieldInvalid('email')" class="error-text">
+              Lütfen geçerli bir e-posta adresi girin
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="subject">Konu</label>
+            <input 
+              type="text" 
+              id="subject" 
+              formControlName="subject"
+              [ngClass]="{'invalid': isFieldInvalid('subject')}"
+            >
+            <div *ngIf="isFieldInvalid('subject')" class="error-text">
+              Lütfen bir konu girin
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="message">Mesaj</label>
+            <textarea 
+              id="message" 
+              formControlName="message" 
+              rows="6"
+              [ngClass]="{'invalid': isFieldInvalid('message')}"
+            ></textarea>
+            <div *ngIf="isFieldInvalid('message')" class="error-text">
+              Lütfen mesajınızı girin
+            </div>
+          </div>
+          
+          <button 
+            type="submit" 
+            class="btn btn-primary" 
+            [disabled]="contactForm.invalid || loading"
+          >
+            <span *ngIf="!loading">Mesaj Gönder</span>
+            <span *ngIf="loading">Gönderiliyor...</span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
