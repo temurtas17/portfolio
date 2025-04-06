@@ -8,125 +8,155 @@ dotenv.config();
 // Sample project data
 const sampleProjects = [
   {
-    title: 'E-Commerce Platform',
-    description: 'A full-featured e-commerce platform built with the MEAN stack (MongoDB, Express, Angular, Node.js). This application includes user authentication, product catalog, shopping cart, payment processing, and order management.',
-    imageUrl: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
-    technologies: ['Angular', 'Node.js', 'Express', 'MongoDB', 'TypeScript', 'Bootstrap', 'Stripe API'],
-    githubUrl: 'https://github.com/yourusername/ecommerce-platform',
-    liveUrl: 'https://ecommerce-demo.example.com',
+    title: 'Milli Eğitim Bakanlığı CBS',
+    description: "Milli Eğitim Bakanlığı'nın bütün okullarının CBS ortamında yönetilmesi amacıyla geliştirilmiş bir projedir. Angular ve ASP.NET Core kullanılarak geliştirilmiştir.",
+    imageUrl: '/assets/images/meb.png',
+    technologies: ['Angular', 'Node.js', 'ASP.NET Core', 'PostgreSQL', 'TypeScript', 'Bootstrap', 'ArcGIS Server'],
+    githubUrl: '',
+    liveUrl: '',
     featured: true,
     order: 1,
-    completionDate: new Date('2023-08-15'),
+    completionDate: new Date('2024-03-31'),
     features: [
-      'User authentication and profile management',
-      'Product catalog with search and filtering',
-      'Shopping cart and checkout process',
-      'Payment processing with Stripe',
-      'Order history and tracking',
-      'Admin dashboard for product and order management'
+      'Kullanıcı kimlik doğrulaması ve profil yönetimi',
+      'Okul ve eğitim kurumlarının harita üzerinde görüntülenmesi',
+      'Gelişmiş arama ve filtreleme özellikleri',
+      'Okul detayları ve istatistiklerinin raporlanması',
+      'Bölgesel eğitim analizleri',
+      'Yönetici paneli ile veri yönetimi'
     ],
     challenges: [
       {
-        title: 'Real-time Inventory Management',
-        description: 'Implemented WebSockets to ensure inventory counts are accurate across all active users, preventing overselling of products.'
+        title: 'Büyük Veri Yönetimi',
+        description: 'Türkiye genelindeki binlerce okulun verilerini verimli bir şekilde yönetmek için özel veritabanı optimizasyonları geliştirdik.'
       },
       {
-        title: 'Secure Payment Processing',
-        description: 'Integrated Stripe API with proper security measures to handle sensitive payment information while maintaining PCI compliance.'
+        title: 'Harita Entegrasyonu',
+        description: 'ArcGIS Server ile entegrasyon sağlayarak, karmaşık coğrafi verileri kullanıcı dostu bir arayüzde sunmayı başardık.'
+      },
+      {
+        title: 'Performans Optimizasyonu',
+        description: 'Büyük veri setleriyle çalışırken bile hızlı yanıt süreleri sağlamak için önbellek mekanizmaları ve lazy loading teknikleri uyguladık.'
       }
     ],
-    images: [
-      {
-        url: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
-        caption: 'Homepage with featured products'
-      },
-      {
-        url: 'https://images.unsplash.com/photo-1557821552-17105176677c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1489&q=80',
-        caption: 'Product detail page'
-      },
-      {
-        url: 'https://images.unsplash.com/photo-1557899563-1940fc95709c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80',
-        caption: 'Checkout process'
-      }
-    ]
+    images: []
   },
   {
-    title: 'Task Management Application',
-    description: 'A collaborative task management application that helps teams organize and track their projects. Features include task creation, assignment, due dates, priority levels, comments, and file attachments.',
-    imageUrl: 'https://images.unsplash.com/photo-1540350394557-8d14678e7f91?ixlib=rb-1.2.1&auto=format&fit=crop&w=1489&q=80',
-    technologies: ['Angular', 'TypeScript', 'Node.js', 'Express', 'MongoDB', 'Socket.io', 'JWT'],
-    githubUrl: 'https://github.com/yourusername/task-manager',
-    liveUrl: 'https://taskmanager-demo.example.com',
+    title: 'Görüntü Tabanlı Bilgi Yönetim Sistemi (Karayolu varlık yönetim ve bakım onarım sistemi)',
+    description: "KGM, Görüntü Tabanlı Bilgi Yönetim Sistemi (GTBYS) projesiyle karayolları ağında bulunan envanterlerin kurumun ihtiyaçlarını karşılayacak şekilde hızlı ve güvenilir olarak toplanıp uygulama kullanıcılarına sunulmasını amaçlıyor.",
+    imageUrl: '/assets/images/gtbys.jpg',
+    technologies: ['Angular', 'TypeScript', 'Node.js', 'Express', 'PostgreSQL', 'Bootstrap', 'Geoserver'],
+    githubUrl: '',
+    liveUrl: '',
     featured: true,
     order: 2,
-    completionDate: new Date('2023-05-20'),
+    completionDate: new Date('2025-03-31'),
     features: [
-      'User authentication and team management',
-      'Project and task creation with custom fields',
-      'Task assignment, due dates, and priority levels',
-      'Real-time updates and notifications',
-      'File attachments and comments',
-      'Kanban board and list views',
-      'Progress tracking and reporting'
+      'Kullanıcı kimlik doğrulaması ve ekip yönetimi',
+      'Karayolu envanterlerinin harita üzerinde görüntülenmesi',
+      'Yol durumu ve bakım ihtiyaçlarının raporlanması',
+      'Gerçek zamanlı veri güncelleme ve bildirimler',
+      'Görüntü tabanlı varlık tespiti ve analizi',
+      'Bakım-onarım planlaması ve takibi',
+      'İlerleme takibi ve raporlama'
     ],
     challenges: [
       {
-        title: 'Real-time Collaboration',
-        description: 'Implemented Socket.io to provide real-time updates when multiple team members are working on the same project simultaneously.'
+        title: 'Gerçek Zamanlı Veri İşleme',
+        description: 'Yüksek çözünürlüklü yol görüntülerinin işlenmesi ve analizi için özel algoritmalar geliştirdik.'
       },
       {
-        title: 'Complex Permission System',
-        description: 'Designed a flexible permission system that allows fine-grained control over who can view, edit, or manage different aspects of projects and tasks.'
+        title: 'Coğrafi Veri Entegrasyonu',
+        description: 'Geoserver kullanarak karmaşık coğrafi verileri entegre ettik ve kullanıcı dostu harita arayüzleri oluşturduk.'
+      },
+      {
+        title: 'Mobil Uyumluluk',
+        description: 'Saha ekiplerinin mobil cihazlardan sisteme erişebilmesi için responsive tasarım ve offline çalışma özellikleri ekledik.'
       }
     ],
-    images: [
-      {
-        url: 'https://images.unsplash.com/photo-1540350394557-8d14678e7f91?ixlib=rb-1.2.1&auto=format&fit=crop&w=1489&q=80',
-        caption: 'Dashboard view'
-      },
-      {
-        url: 'https://images.unsplash.com/photo-1531403009284-440f080d1e12?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
-        caption: 'Kanban board'
-      }
-    ]
+    images: []
   },
   {
-    title: 'Weather Dashboard',
-    description: 'A responsive weather dashboard that provides current conditions and forecasts for locations worldwide. The application uses the OpenWeatherMap API to fetch weather data and presents it in an intuitive, user-friendly interface.',
-    imageUrl: 'https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
-    technologies: ['Angular', 'TypeScript', 'RxJS', 'OpenWeatherMap API', 'Chart.js', 'SCSS'],
-    githubUrl: 'https://github.com/yourusername/weather-dashboard',
-    liveUrl: 'https://weather-demo.example.com',
+    title: 'Arnavutköy Belediyesi Açık Veri Portalı',
+    description: 'Bu projeyle Belediyeye ve kurumlara ait verilerin açık ve erişilebilir hale getirilmesi amaçlanmıştır. Proje geliştirme aşamasında CKAN açık kaynak yazılımı kullanılmıştır.',
+    imageUrl: '/assets/images/arnavutkoy.png',
+    technologies: ['Python', 'Flask', 'Jinja2', 'PostgreSQL', 'Solr', 'Redis', 'Docker'],
+    githubUrl: '',
+    liveUrl: 'https://acikveri.arnavutkoy.bel.tr',
     featured: false,
     order: 3,
-    completionDate: new Date('2023-02-10'),
+    completionDate: new Date('2024-06-30'),
     features: [
-      'Current weather conditions for any location',
-      '5-day forecast with 3-hour intervals',
-      'Interactive charts for temperature, humidity, and wind',
-      'Location search with autocomplete',
-      'Geolocation support for current location',
-      'Responsive design for all device sizes',
-      'Unit conversion (metric/imperial)'
+      'Belediye verilerinin kategorilere ayrılmış şekilde sunulması',
+      'Veri setlerinin CSV, JSON, XML formatlarında indirilebilmesi',
+      'Gelişmiş arama ve filtreleme özellikleri',
+      'Veri görselleştirme araçları ve grafikler',
+      'API erişimi ile verilerin programatik kullanımı',
+      'Kullanıcı hesapları ve veri abonelikleri',
+      'Mobil uyumlu tasarım'
     ],
     challenges: [
       {
-        title: 'API Rate Limiting',
-        description: 'Implemented caching strategies to minimize API calls and stay within the free tier limits of the OpenWeatherMap API.'
+        title: 'Veri Standardizasyonu',
+        description: 'Farklı kaynaklardan gelen verilerin standart bir formatta sunulması için ETL süreçleri geliştirdik.'
       },
       {
-        title: 'Data Visualization',
-        description: 'Created custom Chart.js configurations to display weather data in an intuitive and visually appealing way.'
+        title: 'Performans Optimizasyonu',
+        description: 'Büyük veri setlerinin hızlı bir şekilde sorgulanabilmesi için Solr arama motoru entegrasyonu yaptık.'
+      },
+      {
+        title: 'Kullanıcı Deneyimi',
+        description: 'Teknik olmayan kullanıcıların da kolayca anlayabileceği bir arayüz tasarımı geliştirdik.'
+      }
+    ],
+    images: []
+  },
+  {
+    title: 'Yemek Tarifi Uygulaması',
+    description: "TheMealDB API'sini kullanarak geliştirdiğim kapsamlı bir yemek tarifi uygulaması. Kullanıcılar kategorilere, mutfaklara ve içeriklere göre tarifleri arayabilir, favori tariflerini kaydedebilir ve kendi tariflerini ekleyebilir.",
+    imageUrl: '/assets/images/recipe.png',
+    technologies: ['React', 'Node.js', 'Express', 'PostgreSQL', 'Redux', 'Bootstrap', 'TheMealDB API'],
+    githubUrl: 'https://github.com/temurtas17/Recipe-App',
+    liveUrl: '',
+    featured: true,
+    order: 4,
+    completionDate: new Date('2025-02-02'),
+    features: [
+      'Kategorilere göre yemek tarifleri listeleme',
+      'Mutfaklara göre filtreleme (Türk, İtalyan, Meksika vb.)',
+      'İçeriklere göre arama yapabilme',
+      'Kullanıcı hesapları ve profil yönetimi',
+      'Favori tarifleri kaydetme ve koleksiyon oluşturma',
+      'Kullanıcıların kendi tariflerini ekleyebilmesi',
+      'Detaylı tarif sayfaları ve adım adım yapılış talimatları',
+      'Responsive tasarım ile mobil uyumluluk'
+    ],
+    challenges: [
+      {
+        title: 'API Entegrasyonu',
+        description: 'TheMealDB API ile farklı endpoint\'leri etkin bir şekilde kullanarak zengin bir veri kaynağı oluşturdum ve kendi veritabanımızla senkronize ettim.'
+      },
+      {
+        title: 'Dinamik Filtreleme Sistemi',
+        description: 'Kullanıcıların birden fazla kritere göre (kategori, mutfak, içerik) aynı anda arama yapabilmesini sağlayan esnek bir filtreleme sistemi geliştirdim.'
+      },
+      {
+        title: 'Kullanıcı İçeriği Yönetimi',
+        description: 'Kullanıcıların kendi tariflerini ekleyebilmesi için güvenli bir içerik doğrulama ve onaylama mekanizması oluşturdum.'
       }
     ],
     images: [
       {
-        url: 'https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
-        caption: 'Main dashboard'
+        url: 'https://images.unsplash.com/photo-1466637574441-749b8f19452f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
+        caption: 'Ana sayfa ve kategoriler'
       },
       {
-        url: 'https://images.unsplash.com/photo-1530908295418-a12e326966ba?ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80',
-        caption: 'Forecast view'
+        url: 'https://images.unsplash.com/photo-1495521821757-a1efb6729352?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
+        caption: 'Tarif detay sayfası'
+      },
+      {
+        url: 'https://images.unsplash.com/photo-1507048331197-7d4ac70811cf?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
+        caption: 'Favori tarifler koleksiyonu'
       }
     ]
   }
