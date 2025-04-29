@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterOutlet, NavigationEnd, Router } from '@angular/router';
+import { RouterOutlet, NavigationEnd, Router, Event } from '@angular/router';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { SeoService } from './services/seo.service';
@@ -35,8 +35,8 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     // Her rota değişiminde meta etiketlerini güncelle
     this.router.events.pipe(
-      filter(event => event instanceof NavigationEnd)
-    ).subscribe((event: NavigationEnd) => {
+      filter((event): event is NavigationEnd => event instanceof NavigationEnd)
+    ).subscribe((event) => {
       // Varsayılan SEO etiketlerini ayarla
       this.updateDefaultMetaTags();
       

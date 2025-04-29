@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Router, NavigationEnd } from '@angular/router';
+import { Router, NavigationEnd, Event } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
 
@@ -14,8 +14,8 @@ export class AnalyticsService {
   constructor(private router: Router) {
     // Sayfa geçişlerini takip et
     this.router.events.pipe(
-      filter(event => event instanceof NavigationEnd)
-    ).subscribe((event: any) => {
+      filter((event): event is NavigationEnd => event instanceof NavigationEnd)
+    ).subscribe((event) => {
       if (typeof gtag === 'function') {
         gtag('config', this.gaTrackingId, {
           'page_path': event.urlAfterRedirects
