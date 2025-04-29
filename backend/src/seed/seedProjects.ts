@@ -10,7 +10,7 @@ const sampleProjects = [
   {
     title: 'Milli Eğitim Bakanlığı CBS',
     description: "Milli Eğitim Bakanlığı'nın bütün okullarının CBS ortamında yönetilmesi amacıyla geliştirilmiş bir projedir. Angular ve ASP.NET Core kullanılarak geliştirilmiştir.",
-    imageUrl: '/assets/images/meb.png',
+    imageUrl: '/assets/images/meb.jpg',
     technologies: ['Angular', 'Node.js', 'ASP.NET Core', 'PostgreSQL', 'TypeScript', 'Bootstrap', 'ArcGIS Server'],
     githubUrl: '',
     liveUrl: '',
@@ -114,7 +114,7 @@ const sampleProjects = [
   {
     title: 'Yemek Tarifi Uygulaması',
     description: "TheMealDB API'sini kullanarak geliştirdiğim kapsamlı bir yemek tarifi uygulaması. Kullanıcılar kategorilere, mutfaklara ve içeriklere göre tarifleri arayabilir, favori tariflerini kaydedebilir ve kendi tariflerini ekleyebilir.",
-    imageUrl: '/assets/images/recipe.png',
+    imageUrl: '/assets/images/recipe.jpg',
     technologies: ['React', 'Node.js', 'Express', 'PostgreSQL', 'Redux', 'Bootstrap', 'TheMealDB API'],
     githubUrl: 'https://github.com/temurtas17/Recipe-App',
     liveUrl: '',
