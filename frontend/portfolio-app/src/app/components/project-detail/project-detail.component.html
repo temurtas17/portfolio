@@ -53,10 +53,10 @@
           <div class="project-links-section">
             <h2>Proje Bağlantıları</h2>
             <div class="project-links">
-              <a *ngIf="project.liveUrl" [href]="project.liveUrl" target="_blank" class="btn">
+              <a *ngIf="project.liveUrl" [href]="project.liveUrl" target="_blank" class="btn" (click)="trackExternalLinkClick(project.liveUrl, 'Canlı Demo')">
                 <i class="fas fa-external-link-alt"></i> Canlı Demo
               </a>
-              <a *ngIf="project.githubUrl" [href]="project.githubUrl" target="_blank" class="btn btn-outline">
+              <a *ngIf="project.githubUrl" [href]="project.githubUrl" target="_blank" class="btn btn-outline" (click)="trackExternalLinkClick(project.githubUrl, 'GitHub Kodu')">
                 <i class="fab fa-github"></i> Kodu Görüntüle
               </a>
             </div>

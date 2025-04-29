@@ -1,39 +1,47 @@
-<footer class="footer">
+<footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
   <div class="container">
     <div class="footer-content">
       <div class="footer-section">
-        <h3>Portfolyom</h3>
-        <p>Projelerimin ve yeteneklerimin sergilendiği yer.</p>
+        <h3>Mustafa Temurtaş</h3>
+        <p itemprop="description">Full Stack Geliştirici. Angular ve Node.js ile modern web uygulamaları geliştiriyorum.</p>
       </div>
       
       <div class="footer-section">
         <h3>Hızlı Bağlantılar</h3>
         <ul class="footer-links">
-          <li><a routerLink="/">Ana Sayfa</a></li>
-          <li><a routerLink="/about">Hakkımda</a></li>
-          <li><a routerLink="/projects">Projeler</a></li>
-          <li><a routerLink="/contact">İletişim</a></li>
+          <li><a routerLink="/" itemprop="url">Ana Sayfa</a></li>
+          <li><a routerLink="/about" itemprop="url">Hakkımda</a></li>
+          <li><a routerLink="/projects" itemprop="url">Projeler</a></li>
+          <li><a routerLink="/contact" itemprop="url">İletişim</a></li>
         </ul>
       </div>
       
       <div class="footer-section">
         <h3>Bağlantılar</h3>
-        <div class="social-links">
-          <a href="https://github.com/temurtas17" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+        <div class="social-links" itemprop="sameAs">
+          <a href="https://github.com/temurtas17" target="_blank" rel="noopener noreferrer" aria-label="GitHub" (click)="trackSocialClick('GitHub')">
             <i class="fab fa-github"></i>
           </a>
-          <a href="https://linkedin.com/in/mustafa-temurtas-140b8415a" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <a href="https://linkedin.com/in/mustafa-temurtas-140b8415a" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" (click)="trackSocialClick('LinkedIn')">
             <i class="fab fa-linkedin"></i>
           </a>
-          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter" (click)="trackSocialClick('Twitter')">
             <i class="fab fa-twitter"></i>
           </a>
+        </div>
+      </div>
+      
+      <div class="footer-section">
+        <h3>İletişim</h3>
+        <div class="footer-contact">
+          <p><i class="fas fa-envelope"></i> <a href="mailto:mtemurtas1993&#64;gmail.com" itemprop="email" (click)="trackEmailClick()">mtemurtas1993&#64;gmail.com</a></p>
+          <p><i class="fas fa-map-marker-alt"></i> <span itemprop="addressLocality">Ankara</span>, Türkiye</p>
         </div>
       </div>
     </div>
     
     <div class="footer-bottom">
-      <p>&copy; {{ currentYear }} Portfolyom. Tüm hakları saklıdır.</p>
+      <p>&copy; {{ currentYear }} <span itemprop="name">Mustafa Temurtaş</span>. Tüm hakları saklıdır.</p>
     </div>
   </div>
 </footer>

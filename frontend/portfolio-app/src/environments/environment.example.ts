@@ -1,5 +1,5 @@
 export const environment = {
   production: false,
   apiUrl: 'http://localhost:3000/api',
-  gaTrackingId: 'G-X4R0YNJEDN' // Google Analytics ölçüm ID (development)
-}; 
+  gaTrackingId: 'G-XXXXXXXXXX', // Google Analytics ölçüm ID (development)
+};

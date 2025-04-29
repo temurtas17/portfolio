@@ -91,6 +91,30 @@
   }
 }
 
+.footer-contact {
+  p {
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    
+    i {
+      margin-right: 10px;
+      min-width: 20px;
+      color: #3498db;
+    }
+    
+    a {
+      color: #ecf0f1;
+      text-decoration: none;
+      transition: color 0.3s ease;
+      
+      &:hover {
+        color: #3498db;
+      }
+    }
+  }
+}
+
 .footer-bottom {
   text-align: center;
   padding-top: 1.5rem;

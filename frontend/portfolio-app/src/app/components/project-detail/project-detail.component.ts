@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { ProjectService } from '../../services/project.service';
 import { Project } from '../../models/project.model';
+import { SeoService } from '../../services/seo.service';
+import { AnalyticsService } from '../../services/analytics.service';
 
 @Component({
   selector: 'app-project-detail',
@@ -19,7 +21,9 @@ export class ProjectDetailComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private projectService: ProjectService
+    private projectService: ProjectService,
+    private seoService: SeoService,
+    private analyticsService: AnalyticsService
   ) {}
   
   ngOnInit(): void {
@@ -41,6 +45,29 @@ export class ProjectDetailComponent implements OnInit {
       next: (project) => {
         this.project = project;
         this.loading = false;
+        
+        // Proje bilgilerine göre SEO meta etiketlerini güncelle
+        if (project) {
+          // Açıklama için ilk 160 karakteri kullan
+          const description = project.description.length > 160 
+            ? `${project.description.substring(0, 157)}...` 
+            : project.description;
+            
+          this.seoService.updateTags({
+            title: project.title,
+            description: description,
+            image: project.imageUrl,
+            url: `https://www.temurtas.net/projects/${project._id}`
+          });
+          
+          // Structured data ekleme (JSON-LD)
+          this.addStructuredData(project);
+          
+          // Analytics'e proje görüntüleme bildirimi
+          if (project._id) {
+            this.analyticsService.logProjectView(project._id, project.title);
+          }
+        }
       },
       error: (err) => {
         console.error('Error loading project:', err);
@@ -48,5 +75,44 @@ export class ProjectDetailComponent implements OnInit {
         this.loading = false;
       }
     });
+  }
+  
+  /**
+   * Projenin harici linklerine tıklama takibi
+   */
+  trackExternalLinkClick(url: string, linkType: string): void {
+    this.analyticsService.logExternalLinkClick(url, linkType);
+  }
+  
+  private addStructuredData(project: Project): void {
+    // Varolan JSON-LD script etiketini kaldır (yeniden yüklemeler için)
+    const existingScript = document.getElementById('projectJsonLd');
+    if (existingScript) {
+      existingScript.remove();
+    }
+    
+    // JSON-LD formatında yapılandırılmış veri oluştur
+    const jsonLd = {
+      '@context': 'https://schema.org',
+      '@type': 'CreativeWork',
+      'name': project.title,
+      'description': project.description,
+      'image': project.imageUrl,
+      'author': {
+        '@type': 'Person',
+        'name': 'Mustafa Temurtaş',
+        'url': 'https://www.temurtas.net/about'
+      },
+      'datePublished': project.completionDate,
+      'url': `https://www.temurtas.net/projects/${project._id}`,
+      'keywords': project.technologies.join(', ')
+    };
+    
+    // JSON-LD script etiketini sayfaya ekle
+    const script = document.createElement('script');
+    script.id = 'projectJsonLd';
+    script.type = 'application/ld+json';
+    script.text = JSON.stringify(jsonLd);
+    document.head.appendChild(script);
   }
 }
